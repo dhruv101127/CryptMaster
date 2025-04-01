@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "576235553668",
+    "project_id": "crypto-app-ce8c6",
+    "storage_bucket": "crypto-app-ce8c6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:576235553668:android:5c617c7da8b90fa02313d1",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "576235553668-q88hgvipej1jnul91ljivbs7h41to98b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.android.application",
+            "certificate_hash": "7b04e66bb9f5348d7d7f54def978ef4531c0dc43"
+          }
+        },
+        {
+          "client_id": "576235553668-bm97s5ltkvs5nr5rp7cresh87jcepn9u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB407dwdWKOHtFbvfUyTfeeUzOUKNNSzg4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "576235553668-bm97s5ltkvs5nr5rp7cresh87jcepn9u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "576235553668-igh8b1me4couna59jif8ns1gi8ve7lml.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cryptoApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:576235553668:android:44383e15c9c40edb2313d1",
+        "android_client_info": {
+          "package_name": "com.example.crypto_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "576235553668-bm97s5ltkvs5nr5rp7cresh87jcepn9u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB407dwdWKOHtFbvfUyTfeeUzOUKNNSzg4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "576235553668-bm97s5ltkvs5nr5rp7cresh87jcepn9u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "576235553668-igh8b1me4couna59jif8ns1gi8ve7lml.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cryptoApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
