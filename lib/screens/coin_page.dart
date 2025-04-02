@@ -1,3 +1,4 @@
+import 'package:crypto_app/services/web_socket.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -121,11 +122,10 @@ class _CoinPageState extends State<CoinPage> {
             spacing: 10,
             children: [
               SizedBox(
-                width: 150,
+                width: 300,
                 child: Text(
-                  "$price",
+                  "\$${CoinWebSocket.coins.value.coinsC}",
                   style: TextStyle(fontSize: 27),
-                  overflow: TextOverflow.ellipsis,
                 ),
               ),
               Container(
@@ -176,22 +176,24 @@ class _CoinPageState extends State<CoinPage> {
                       child: Text("All")),
                 ],
               ),
-              ListTile(
-                leading: CircleAvatar(
-                  foregroundImage: NetworkImage(logo ?? ""),
-                  radius: 30,
+              Obx(
+                () => ListTile(
+                  leading: CircleAvatar(
+                    foregroundImage: NetworkImage(logo ?? ""),
+                    radius: 30,
+                  ),
+                  title: Text(name ?? ""),
+                  subtitle: Text("0.00 $symbol"),
+                  tileColor: Colors.white,
+                  trailing: Text(
+                    "\$${CoinWebSocket.coins.value.coinsC}",
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)),
                 ),
-                title: Text(name ?? ""),
-                subtitle: Text("0.00 $symbol"),
-                tileColor: Colors.white,
-                trailing: Text(
-                  "₹ 0.00",
-                  style: TextStyle(fontSize: 20),
-                ),
-                contentPadding:
-                    EdgeInsets.symmetric(vertical: 5, horizontal: 15),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30)),
               ),
               ListTile(
                   onTap: () {},

@@ -8,8 +8,10 @@ import 'package:crypto_app/screens/portfolio.dart';
 import 'package:crypto_app/screens/quick_invest.dart';
 import 'package:crypto_app/screens/sell.dart';
 import 'package:crypto_app/screens/signup.dart';
+import 'package:crypto_app/screens/ui.dart';
 import 'package:crypto_app/screens/withdraw.dart';
 import 'package:crypto_app/screens/wrapper.dart';
+import 'package:crypto_app/services/web_socket.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,7 +19,7 @@ import 'package:get/get.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  
+  CoinWebSocket().connectSocket();
   runApp(const MyApp());
 }
 
@@ -26,11 +28,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return GetMaterialApp(
       //home: HomeScreen(),
       initialRoute: "/",
       getPages: [
+        // GetPage(name: "/", page: () => Ui()),
         GetPage(name: "/", page: () => Wrapper()),
         GetPage(name: "/login", page: () => Login()),
         GetPage(name: "/signup", page: () => Signup()),

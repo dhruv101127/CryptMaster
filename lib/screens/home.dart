@@ -1,5 +1,6 @@
 import 'package:crypto_app/model/api_model.dart';
 import 'package:crypto_app/services/api_services.dart';
+import 'package:crypto_app/services/web_socket.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -13,7 +14,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   CryptoModel model = CryptoModel();
-
   _HomeScreenState() {
     ApiServices().getModel().then((value) {
       setState(() {
@@ -103,29 +103,30 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: ListView.separated(
                           itemCount: 10,
                           itemBuilder: (context, index) {
-                            return ListTile(
-                              leading: CircleAvatar(
-                                child: Image.network(
-                                    model.data?[index].logo ?? ""),
+                            return Obx(
+                              () => ListTile(
+                                leading: CircleAvatar(
+                                  child: Image.network(
+                                      model.data?[index].logo ?? ""),
+                                ),
+                                title: Text(model.data?[index].name ?? ""),
+                                subtitle: Text(model.data?[index].symbol ?? ""),
+                                tileColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.horizontal(
+                                        left: Radius.circular(10),
+                                        right: Radius.circular(10))),
+                                trailing: Text(
+                                    "\$${CoinWebSocket.coins.value.coinsC}"),
+                                onTap: () {
+                                  Get.toNamed("/coinpage", arguments: {
+                                    'logo': model.data?[index].logo,
+                                    'name': model.data?[index].name,
+                                    'price': model.data?[index].priceUsd,
+                                    'symbol': model.data?[index].symbol,
+                                  });
+                                },
                               ),
-                              title: Text(model.data?[index].name ?? ""),
-                              subtitle: Text(model.data?[index].symbol ?? ""),
-                              tileColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.horizontal(
-                                      left: Radius.circular(10),
-                                      right: Radius.circular(10))),
-                              trailing: Text(
-                                model.data?[index].priceUsd ?? "",
-                              ),
-                              onTap: () {
-                                Get.toNamed("/coinpage", arguments: {
-                                  'logo': model.data?[index].logo,
-                                  'name': model.data?[index].name,
-                                  'price': model.data?[index].priceUsd,
-                                  'symbol': model.data?[index].symbol,
-                                });
-                              },
                             );
                           },
                           separatorBuilder: (context, index) => SizedBox(
